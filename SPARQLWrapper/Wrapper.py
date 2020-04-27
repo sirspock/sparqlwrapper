@@ -272,7 +272,7 @@ from SPARQLWrapper import __agent__
 #
 ################################################################################
 #
-#  - GraphDB <http://graphdb.ontotext.com/> <http://graphdb.ontotext.com/documentation/free/> 
+#  - GraphDB <http://graphdb.ontotext.com/> <http://graphdb.ontotext.com/documentation/free/>
 #    * Formerly known as OWLIM (OWLIM-Lite, OWLIM-SE)
 #    * Uses: Only Content Negotiation.
 #    * If the Accept value is not within the expected ones, the server returns a 406 "No acceptable file format found."
@@ -432,7 +432,7 @@ _SPARQL_JSON     = ["application/sparql-results+json", "application/json", "text
 _RDF_XML         = ["application/rdf+xml"]
 _RDF_TURTLE      = ["application/turtle", "text/turtle"]
 _RDF_N3          = _RDF_TURTLE + ["text/rdf+n3", "application/n-triples", "application/n3", "text/n3"]
-_RDF_JSONLD      = ["application/ld+json", "application/x-json+ld"]
+_RDF_JSONLD      = ["application/x-json+ld+ctx", "application/ld+json", "application/x-json+ld"]
 _CSV             = ["text/csv"]
 _TSV             = ["text/tab-separated-values"]
 _XML             = ["application/xml"]
@@ -766,7 +766,7 @@ class SPARQLWrapper(object):
             :param realm: realm. Only used for :data:`DIGEST` authentication. The **default** value is ``SPARQL``
             :type realm: string
 
-            .. versionchanged:: 1.8.3 
+            .. versionchanged:: 1.8.3
                Added :attr:`realm` parameter.
         """
         self.user = user
@@ -792,7 +792,7 @@ class SPARQLWrapper(object):
 
     def setQuery(self, query):
         """
-            Set the SPARQL query text. 
+            Set the SPARQL query text.
 
             .. note::
               No check is done on the validity of the query
@@ -1139,7 +1139,7 @@ class QueryResult(object):
 
     If used directly: the class gives access to the direct HTTP request results
     ``response`` obtained from the call to :func:`urllib.urlopen`.
-    It is a file-like object with two additional methods: 
+    It is a file-like object with two additional methods:
 
     * ``geturl()`` to return the URL of the resource retrieved
     * ``info()`` that returns the meta-information of the HTTP result as a dictionary-like object.
